@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    environment:
+      PORT: 8080
+      #Mongo
+      MONGO_ATLAS_URI: mongodb+srv://devCirotex:1234@cluster0.totgkft.mongodb.net/cirotex
+      JWT_SECRET: muysecreto
