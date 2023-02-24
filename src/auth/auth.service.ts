@@ -9,15 +9,20 @@ export class AuthService {
     private readonly usersService: UsersService,
     private jwtService: JwtService,
   ) {}
-  
+
   async validateUser(username: string, password: string) {
     const user = await this.usersService.getUser(username);
 
     const passwordValid = await bcrypt.compare(password, user.password);
 
     if (!user) {
-      throw new NotAcceptableException("could not find the user");
+      throw new NotAcceptableException("Usuario Incorrecto");
     }
+
+    if (!passwordValid) {
+      throw new Error("Contraseña Incorrecta");
+    }
+
     if (user && passwordValid) {
       return user;
     }

@@ -8,3 +8,6 @@ services:
       #Mongo
       MONGO_ATLAS_URI: mongodb+srv://devCirotex:1234@cluster0.totgkft.mongodb.net/cirotex
       JWT_SECRET: muysecreto
+
+    ports:
+      - "8080:8080"
